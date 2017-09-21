@@ -1,6 +1,6 @@
 A.	Define a LISP function MIN-2 with the following properties.   MIN-2 takes two arguments.  If          those arguments have values A and B, and A and B are numbers, then MIN-2 returns A if A ≤ B      and returns B if A > B; but if A or B is not a number MIN-2 returns the symbol ERROR. 
 Examples: (MIN-2 21.3 7/2)    => 7/2   (MIN-2 17.5 29)    => 17.5     (MIN-2 5 'APPLE) => ERROR       				(MIN-2 '(31) '(54)) => ERROR 
-	```lisp
+```lisp
 (defun MIN-2 (a b) 
 (if (and (numberp a) (numberp b)) (if (< a b) (car (cons a nil)) (car (cons b nil))) (car '(ERROR))))
 ```

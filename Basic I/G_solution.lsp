@@ -1,0 +1,1 @@
+(defun GT (a b) (and (numberp a) (numberp b) (> a b)))

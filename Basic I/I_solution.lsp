@@ -1,0 +1,1 @@
+(defun SAFE-DIV (a b) (and (numberp a) (numberp b) (/= b 0) (/ a b)))

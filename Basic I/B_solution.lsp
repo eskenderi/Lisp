@@ -1,0 +1,1 @@
+(defun SAFE-AVG (a b) (if (and (numberp a) (numberp b)) (/ (+ a b) 2) nil))

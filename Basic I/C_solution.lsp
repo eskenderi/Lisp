@@ -1,0 +1,1 @@
+(defun ODD-GT-MILLION (a) (if (and (integerp a) (> a 1000000)) t nil))

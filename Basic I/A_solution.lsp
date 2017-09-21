@@ -1,0 +1,1 @@
+(defun MIN-2 (a b) (if (and (numberp a) (numberp b)) (if (< a b) (car (cons a nil)) (car (cons b nil))) (car '(ERROR))))

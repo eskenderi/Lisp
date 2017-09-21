@@ -1,0 +1,1 @@
+(defun MULTIPLE-MEMBER (a l) (if (member a (cdr (member a l))) t nil))

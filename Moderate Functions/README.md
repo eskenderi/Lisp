@@ -1,4 +1,4 @@
-**A.**
+**A.** - Define a function to search for a specific item in a list and return its first appearance position.
 ```lisp
 (defun INDEX (N L) (
 		if L
@@ -6,7 +6,7 @@
 					(car L))
 		'ERROR))
 ```
-**B.**
+**B.** - Define a function to return the position of the minimum value of a list containing numbers only
 ``` lisp
 (defun MIN-FIRST (L) (
 		if (> (length L) 1)
@@ -16,7 +16,7 @@
 				 (cons (car X) (cons (car L) (cdr X))) ))
 		L))
 ```
-**C**
+**C** - Define an Insertion sorting function 
 ```lisp
 (defun SSORT (L) (
 		if (> (length L) 1)
@@ -24,9 +24,8 @@
 			(cons (car X) (SSORT (cdr X))))
 		L))
 ```
-**D**
+**D** - Defining a Quick Sort function
 ```lisp
-;partition from assignment 4
 (defun PARTITION (L N)
   (if L
        (let ((lst (PARTITION (cdr L) N)))
@@ -34,9 +33,6 @@
          	(list (cons (first L) (first lst)) (second lst))
          	(list (first lst) (cons (first L) (second lst)))))
   '(nil nil)))
-```
-**E**
-```lisp
  (defun QSORT (L) (
 		if (> (length L) 1)
 		(let ((X (PARTITION L (car L))))
@@ -45,7 +41,7 @@
 					(cons (first (second X)) (QSORT (rest (second X)))) ))
 		 L))
 ```
-**F**
+**E** - Defining a function to merge two lists together in a sorted manner.
 ```lisp
  (defun MERGE-LISTS (L1 L2) (
 		cond ((and (endp L1) (endp L2)) '())
@@ -56,9 +52,9 @@
 					(cons (car L2) (MERGE-LISTS L1 (cdr L2)))))
 		))
 ```
-**G**
+**F** - Defining a Merge Sort algorithm function
 ```lisp
-;split-list from assignment 4
+
 (defun split-list (lst)
   (if lst
       (if (cddr lst)
@@ -75,7 +71,7 @@
 			(MERGE-LISTS (MSORT (car X)) (MSORT (cadr X))))
 		L))
 ```
-**H**
+**G** - Defining a function to remove any adjacent duplicate out of a list
 ```lisp
  (defun REMOVE-ADJ-DUPL (L) (
 		if (> (length L) 1)
@@ -84,18 +80,18 @@
 				(cons (car L) (REMOVE-ADJ-DUPL (cdr L))))
 			L))
 ```
-**I**
+**H** - Defining a function to omit non-repeated elements out of a list
 ```lisp
  (defun UNREPEATED-ELTS (L) (
 		if(> (length L) 1) 
-			(if	(equal (car L) (cadr L))
+			(if (equal (car L) (cadr L))
 					(if (equal (cadr L) (caddr L)) 
 						(UNREPEATED-ELTS (cdr L)) 
 						(UNREPEATED-ELTS (cddr L)))
 					(cons (car L) (UNREPEATED-ELTS (cdr L))))
 		L))
 ```
-**J**
+**I** - Defining a function to remove the repeated elements out of a list
 ```lisp
  (defun REPEATED-ELTS (L) (
 		if(> (length L) 1) 
@@ -106,7 +102,7 @@
 					(REPEATED-ELTS (cdr L)))
 		'()))
 ```
-**K**
+**J** - Defining a function to return the number of repetitions on a list
 ```lisp
  (defun COUNT-REPETITIONS (L) (
 		if L
@@ -116,7 +112,7 @@
 					(cons (list 1 (car L)) X) ))
 		'()))
 ```
-**L**
+**K** - Defining a function to return the subset list F of the list L
 ```lisp
  (defun SUBSET (F L) (
 		if L
@@ -124,25 +120,23 @@
 				(cons (car L) (SUBSET F (cdr L))) 
 				(SUBSET F (cdr L)))
 			'()))
-```
-**M**
+``` 
+**L** - 
 ```lisp
-;i
 (defun OUR-SOME (F L) (
 		if L
 			(if (apply F (list (car L)))
 				L
 				(OUR-SOME F (cdr L)))
 		'()))
-;ii
 (defun OUR-EVERY (F L) (
 		if (> (length L) 1)
 			(and (apply F (list (car L))) (OUR-EVERY F (cdr L)))
 		(apply F (list (car L)))))
 ```
-**N**
+**M** - Defining a function to perform quicksort over a list by making use of the apply call
 ```lisp
-;Modified partition2 from assignment 4
+
 (defun PARTITION2 (F L N)
   (if L
        (let ((lst (PARTITION2 F (cdr L) N)))
@@ -158,29 +152,26 @@
 					(cons (first (second X)) (QSORT1 F (rest (second X)))) ))
 		 L))
 ```
-**O**
+**O** - Defining recursive basic batch operation
 ```lisp
- (defun FOO (F L) (
-		
-		))
-```
-**P**
-```lisp
+;Addition
  (defun TR-ADD (L N) (
 		if(endp L)
 		N
 		(TR-ADD (cdr L) (+ N (car L)))
 		))
+;Multiplication
 (defun TR-MUL (L N) (
 		if(endp L)
 		N
 		(TR-MUL (cdr L) (* (car L) N))))
+;Factorization
 (defun TR-FAC (M N)(
 		if (= M 1)
 		N
 		(TR-FAC (- M 1) (* M N))))
 ```
-**Q**
+**P** - Defining function to return the next prime number larger than a specific number N
 ```lisp
  (defun SLOW-PRIMEP (N) (= (- N 1) (mod (TR-FAC (- N 1) 1) N)))
 (defun LargerPrimeThan (N) (
@@ -191,7 +182,7 @@
 ;=>20011
 
 ```
-**R**
+**Q** - Defining a slow transpose function
 ```lisp
  (defun TRANSPOSE1 (M) (
 		if (null (car M))
@@ -200,16 +191,16 @@
 		))
 
 ```
-**S**
+**R** - Defining a faster transpose function 
 ```lisp
  (defun TRANSPOSE2 (M) (
 		if (endp (cdar M))
 			(cons (mapcar #'car M) '())
 			(cons (mapcar #'car M) (TRANSPOSE2 (mapcar #'cdr M)))
 		))
-;
+
 ```
-**T**
+**S** - Defining the fastest transpose function
 ```lisp
 
 (defun TRANSPOSE3 (M)
